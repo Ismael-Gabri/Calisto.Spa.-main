@@ -1,0 +1,129 @@
+<div
+  class="fixed inset-0 flex justify-center items-center z-50"
+  style="background-color: rgba(0, 0, 0, 0.3)"
+>
+  <!-- Modal centralizado -->
+  <div
+    class="ticket-registration bg-white p-5 rounded-2xl w-11/12 max-w-lg max-h-[90vh] overflow-auto relative shadow-xl min-h-1"
+  >
+    <!-- Botão de fechar -->
+    <button
+      class="absolute top-4 right-8 text-gray-500 hover:text-gray-700 text-2xl font-bold"
+      (click)="closeModal()"
+    >
+      X
+    </button>
+
+    <!-- Conteúdo do formulário -->
+    <div class="flex justify-center items-center mb-4">
+      <h1 class="text-2xl font-bold">Criação de Ticket</h1>
+      <i class="bxr bx-ticket ml-3 mt-1.5 text-2xl"></i>
+    </div>
+
+    <form (ngSubmit)="OnCreation()">
+      <div class="space-y-6">
+        <!-- Título -->
+        <div>
+          <label class="block text-sm font-medium text-gray-900">Título</label>
+          <input [(ngModel)]="title" name="title"
+            type="text"
+            class="mt-2 block w-full rounded-md border-gray-300 px-3 py-2 text-base text-gray-900 focus:outline-2 focus:outline-indigo-600 bg-gray-200"
+          />
+        </div>
+
+        <!-- Descrição -->
+        <div>
+          <label class="block text-sm font-medium text-gray-900">descrição</label>
+          <input [(ngModel)]="description" name="description"
+            type="text"
+            class="mt-2 block w-full rounded-md border-gray-300 px-3 py-2 text-base text-gray-900 focus:outline-2 focus:outline-indigo-600 bg-gray-200"
+          />
+        </div>
+
+        <div class="equipe-prioridade flex">
+          <div class="flex flex-col mr-3">
+            <label for="status" class="text-stone-600 text-sm font-medium"
+              >Equipe</label
+            >
+
+            <select
+              id="status"
+              class="block w-full rounded-md border border-gray-200 px-2 py-2 shadow-sm outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 max-w-45 mb-5"
+            >
+              <option>TI</option>
+              <option>Desenvolvimento</option>
+              <option>Marketing</option>
+            </select>
+          </div>
+          <div class="flex flex-col mr-3">
+            <label for="status" class="text-stone-600 text-sm font-medium"
+              >Prioridade</label
+            >
+
+            <select
+              id="status"
+              class="block w-full rounded-md border border-gray-200 px-2 py-2 shadow-sm outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 max-w-45 mb-5"
+            >
+              <option>Baixa</option>
+              <option>Normal</option>
+              <option>Alta</option>
+              <option>Crítica</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Upload de arquivo -->
+        <div>
+          <label class="block text-sm font-medium text-gray-900"
+            >Cover photo</label
+          >
+          <div
+            class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-300 px-6 py-10 bg-gray-200"
+          >
+            <div class="text-center">
+              <svg
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="mx-auto w-12 h-12 text-gray-300"
+              >
+                <path
+                  d="M1.5 6a2.25 2.25 0 0 1 2.25-2.25h16.5A2.25 2.25 0 0 1 22.5 6v12a2.25 2.25 0 0 1-2.25 2.25H3.75A2.25 2.25 0 0 1 1.5 18V6ZM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0 0 21 18v-1.94l-2.69-2.689a1.5 1.5 0 0 0-2.12 0l-.88.879.97.97a.75.75 0 1 1-1.06 1.06l-5.16-5.159a1.5 1.5 0 0 0-2.12 0L3 16.061Zm10.125-7.81a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Z"
+                  clip-rule="evenodd"
+                  fill-rule="evenodd"
+                />
+              </svg>
+              <div class="mt-4 flex text-sm text-gray-600">
+                <label
+                  for="file-upload"
+                  class="relative cursor-pointer rounded-md font-semibold text-indigo-600 hover:text-indigo-500"
+                >
+                  <span>Upload a file</span>
+                  <input id="file-upload" type="file" class="sr-only" />
+                </label>
+                <p class="pl-1">or drag and drop</p>
+              </div>
+              <p class="text-xs text-gray-600">PNG, JPG, GIF up to 10MB</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Botões -->
+      <div class="mt-6 flex justify-end gap-4">
+        <button
+          type="button"
+          class="text-gray-900 font-semibold px-3 py-2 rounded-md"
+          (click)="closeModal()"
+        >
+          Cancel
+        </button>
+        <button
+          type="submit"
+          class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-500"
+        >
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

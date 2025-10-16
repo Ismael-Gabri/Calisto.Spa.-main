@@ -1,0 +1,28 @@
+<!-- Quando não estiver na página de login -->
+<div *ngIf="!isLoginPage" class="container">
+  <div class="side-nav">
+    <app-side-nav></app-side-nav>
+  </div>
+
+  <div class="top-nav w-full">
+    <!-- Botão do TopNav dispara o evento que abre o modal -->
+    <app-top-nav (openTicketModal)="showTicketModal = true"></app-top-nav>
+  </div>
+
+  <div class="page">
+    <div class="content">
+      <router-outlet></router-outlet>
+
+      <!-- Modal do Ticket -->
+      <app-ticket-registration
+        *ngIf="showTicketModal"
+        (close)="showTicketModal = false"
+      ></app-ticket-registration>
+    </div>
+  </div>
+</div>
+
+<!-- Quando estiver na página de login -->
+<div *ngIf="isLoginPage" class="login-page">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,127 @@
+:root {
+  display: flex;
+  gap: var(--gap);
+  align-items: flex-start;
+  overflow: auto;
+  padding-bottom: 12px;
+}
+
+.column {
+  min-width: 280px;
+  max-width: 320px;
+  background: linear-gradient(180deg, #fff, #fbfdff);
+  border-radius: 10px;
+  padding: 14px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+}
+
+.col-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.col-title {
+  font-weight: 700;
+  font-size: 15px;
+}
+.col-count {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.dropzone {
+  flex: 1;
+  overflow: auto;
+  padding: 6px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: transparent;
+  transition: background 0.15s ease;
+}
+.dropzone.drag-over {
+  background: rgba(43, 124, 255, 0.04);
+}
+
+.card {
+  background: var(--card);
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(16, 24, 40, 0.06);
+  cursor: grab;
+  border: 1px solid rgba(16, 24, 40, 0.03);
+}
+.card:active {
+  cursor: grabbing;
+}
+.card-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.card-meta {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+.btn {
+  border: 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn.primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn.ghost {
+  background: transparent;
+  border: 1px dashed rgba(16, 24, 40, 0.06);
+}
+
+.add-card-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+.add-card-row input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(16, 24, 40, 0.06);
+}
+
+/* small screen */
+@media (max-width: 800px) {
+  .board {
+    padding-bottom: 80px;
+  }
+  .column {
+    min-width: 260px;
+    height: 60vh;
+  }
+}
+
+/* helper */
+.muted {
+  color: var(--muted);
+  font-size: 13px;
+}
+.empty {
+  padding: 12px;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #ffffff00, #ffffff00);
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}

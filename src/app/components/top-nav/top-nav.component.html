@@ -1,0 +1,26 @@
+<div class="fixed ml-40 mt-5 text-1x2">
+  <p class="block font-semibold text-slate-800">Callisto / Ticket List</p>
+</div>
+<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8">
+  <div class="h-16 w-488 rounded bg-blue-50 flex justify-end items-center pr-8">
+    <!-- Botão que abre o modal -->
+    <div class="btn-add mr-7">
+      <button class="button-5" (click)="toggleTicketRegistration()">
+        Novo Ticket +
+      </button>
+    </div>
+
+    <span class="font-semibold text-slate-700 tracking-wide mr-5">
+      {{ user?.name?.firstName }} {{ user?.name?.lastName }}
+    </span>
+    <img
+      [src]="
+        user?.profileImage
+          ? 'data:image/jpeg;base64,' + user.profileImage
+          : 'https://docs.material-tailwind.com/img/face-2.jpg'
+      "
+      alt="avatar"
+      class="h-11 w-11 !rounded-full object-cover object-center"
+    />
+  </div>
+</div>
