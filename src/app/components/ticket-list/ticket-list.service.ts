@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -45,4 +45,15 @@ export class TicketListService {
   getTickets(): Observable<Ticket[]> {
     return this.http.get<Ticket[]>(`${this.apiUrl}/ticket`);
   }
+
+  getTicketById(id: string): Observable<Ticket> {
+  const token = localStorage.getItem('token');
+  const headers = new HttpHeaders({
+    Authorization: `Bearer ${token}`,
+    'Content-Type': 'application/json',
+  });
+
+  // Usa o ID na URL para buscar um ticket específico
+  return this.http.get<Ticket>(`${this.apiUrl}/ticket/${id}`, { headers });
+}
 }

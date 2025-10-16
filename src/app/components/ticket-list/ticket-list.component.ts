@@ -13,6 +13,8 @@ export class TicketListComponent implements OnInit {
   ticketsFiltrados: any[] = [];
   loading = true;
 
+  ticketId: string = ''
+
   // filtros
   selectedTecnico = 'Todos';
   selectedCliente = 'Todos';
@@ -101,4 +103,27 @@ export class TicketListComponent implements OnInit {
       );
     });
   }
+
+  searchTicket() {
+  // Evita pesquisar se o campo estiver vazio
+  if (!this.ticketId || this.ticketId.trim() === '') {
+    console.warn('Informe um Ticket ID para pesquisar.');
+    return;
+  }
+
+  this.ticketListService.getTicketById(this.ticketId).subscribe({
+    next: (ticket) => {
+      console.log('✅ Ticket encontrado:', ticket);
+
+      // Aqui você pode atualizar a interface, por exemplo:
+      // this.foundTicket = ticket;
+    },
+    error: (err) => {
+      console.error('❌ Ticket não encontrado ou erro na requisição', err);
+
+      // Opcional: você pode mostrar uma mensagem no UI
+      // this.foundTicket = null;
+    }
+  });
+}
 }
