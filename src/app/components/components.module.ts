@@ -10,6 +10,7 @@ import { PageListComponent } from './Pages/page-list/page-list.component';
 import { PageLoginComponent } from './Pages/page-login/page-login.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { TicketPageComponent } from './ticket-page/ticket-page.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CommonModule } from '@angular/common';
     KpiCardComponent,
     PageListComponent,
     PageLoginComponent,
+    TicketPageComponent,
   ],
   imports: [
     RouterModule,
@@ -36,6 +38,7 @@ import { CommonModule } from '@angular/common';
     KpiCardComponent,
     PageListComponent,
     PageLoginComponent,
+    TicketPageComponent
   ],
 })
 export class ComponentsModule {}
